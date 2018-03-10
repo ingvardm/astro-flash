@@ -15,7 +15,7 @@ export default class Main extends Component {
     }
 
     componentWillUnmount(){
-        gyro.stop()
+        gyro.unsubscribe(this.handleGyroUpdate)
     }
 
     async initializeSensors(){
