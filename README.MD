@@ -4,7 +4,7 @@ A simple app to help you along with your nightly stargazing.
 
 Features
 ===
-* Red Flashlight
+* Adjustable red flashlight
 * Compass
 * Level
 
