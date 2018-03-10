@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, StatusBar } from 'react-native'
+import { StyleSheet, View, StatusBar, Animated } from 'react-native'
 import { Flashlight, Compass, Level } from '../widgets'
-import { gyro, heading } from '../sensors'
+import { gyro } from '../sensors'
 import KeepAwake from 'react-native-keep-awake'
 
 export default class Main extends Component {
@@ -9,9 +9,6 @@ export default class Main extends Component {
         super(props)
         this.state = {
             flashlightOn: false,
-            gyroAvailable: false,
-            compasAvailable: false,
-            heading: 0,
             angles: { x:0, y:0 }
         }
     }
@@ -22,21 +19,11 @@ export default class Main extends Component {
 
     componentWillUnmount(){
         gyro.stop()
-        heading.stop()
     }
 
     async initializeSensors(){
-        let [ gyroAvailable, compasAvailable ] = await new Promise.all([
-            gyro.init(),
-            heading.init()
-        ])
-
+        let gyroAvailable = await gyro.init()
         if(gyroAvailable) gyro.subscribe(this.handleGyroUpdate)
-        if(compasAvailable) heading.subscribe(this.handleHeadingUpdate)
-    }
-
-    handleHeadingUpdate = heading => {
-        this.setState({heading})
     }
 
     handleGyroUpdate = ({x,y,z}) => {
@@ -44,10 +31,7 @@ export default class Main extends Component {
 
         if(flashlightOn){
             KeepAwake.activate()
-            heading.stop()
         } else {
-            heading.init()
-            heading.subscribe(this.handleHeadingUpdate)
             KeepAwake.deactivate()
         }
 
@@ -63,8 +47,7 @@ export default class Main extends Component {
         }
 
         return <View style={styles.container}>
-            <Compass heading={this.state.heading} />
-            <Level {...this.state.angles}/>
+            <Compass />
         </View>
     }
 
