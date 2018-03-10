@@ -35,7 +35,7 @@ export default class Compass extends PureComponent {
         let now = Date.now()
         if(now < this.lastHeadingUpdate + headingUpdateThreshold) return
         this.lastHeadingUpdate = now
-        this.setState({value: heading})
+        this.setState({value: 360 - heading})
         Animated.timing(
             this.state.heading,
             {
