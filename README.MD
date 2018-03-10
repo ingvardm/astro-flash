@@ -1,3 +1,5 @@
+![AstroFlash](./icon.png "AstroFlash")
+
 Description
 ===
 A simple app to help you along with your nightly stargazing.
@@ -28,3 +30,7 @@ Run
 TODO v1.0
 ===
 [See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
+
+Contact
+===
+[ingvardm@gmail.com](mailto://ingvardm@gmail.com)
