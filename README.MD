@@ -31,8 +31,5 @@ TODO v1.0
 ===
 [See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
 
-Contact
-===
-[ingvardm@gmail.com](mailto://ingvardm@gmail.com)
 
-made with ❤️ by Igor Poughatch
+made with ❤️ by [Igor Poughatch](mailto://ingvardm@gmail.com)
