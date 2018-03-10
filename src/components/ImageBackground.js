@@ -3,7 +3,7 @@ import { Image, StyleSheet } from 'react-native'
 
 export default class ImageBackground extends PureComponent {
     render(){
-        return <Image {...this.props} style={styles.image}/>
+        return <Image {...this.props} style={[styles.image,this.props.style]}/>
     }
 }
 
