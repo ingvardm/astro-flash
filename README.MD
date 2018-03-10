@@ -34,3 +34,5 @@ TODO v1.0
 Contact
 ===
 [ingvardm@gmail.com](mailto://ingvardm@gmail.com)
+
+made with ❤️ by Igor Poughatch
