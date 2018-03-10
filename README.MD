@@ -27,13 +27,4 @@ Run
 
 TODO v1.0
 ===
-* refacktor with flow
-* tests
-* code optimizations
-* design (in progress)
-* geolocation
-* polar viewfinder
-* add IOS support
-* release downloadable .apk
-* release on Google Play
-* relese on App Store (?)
+[See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
