@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { Text, StyleSheet, View, Animated, Dimensions, NativeAnimatedModule } from 'react-native'
 import { colors } from '../theme'
 import { heading } from '../sensors'
-import { CrossHair } from '../components'
+import { CrossHair, Wrapper } from '../components'
 
 const headingUpdateThreshold = 50
 
@@ -48,10 +48,12 @@ export default class Compass extends PureComponent {
 
     render(){
         return (
-            <View style={styles.container}>
-                <CrossHair heading={this.state.heading}/>
-                <Text style={styles.text}>{this.state.value}</Text>
-            </View>
+            <Wrapper>
+                <View style={styles.container}>
+                    <CrossHair heading={this.state.heading}/>
+                    <Text style={styles.text}>{this.state.value}</Text>
+                </View>
+            </Wrapper>
         )
     }
 }
