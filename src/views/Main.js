@@ -7,10 +7,7 @@ import KeepAwake from 'react-native-keep-awake'
 export default class Main extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            flashlightOn: false,
-            angles: { x:0, y:0 }
-        }
+        this.state = { flashlightOn: false }
     }
 
     componentDidMount() {
@@ -29,16 +26,10 @@ export default class Main extends Component {
     handleGyroUpdate = ({x,y,z}) => {
         let flashlightOn = this.state.flashlightOn ? z < 7 : z < -7
 
-        if(flashlightOn){
-            KeepAwake.activate()
-        } else {
-            KeepAwake.deactivate()
-        }
+        if(flashlightOn) KeepAwake.activate()
+        else KeepAwake.deactivate()
 
-        this.setState({
-            flashlightOn,
-            angles:{x,y}
-        })
+        this.setState({ flashlightOn })
     }
 
     Content = () => {
