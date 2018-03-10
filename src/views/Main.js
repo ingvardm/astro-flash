@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, StatusBar, Animated } from 'react-native'
-import { Flashlight, Compass, Level } from '../widgets'
+import { Flashlight, TabBar } from '../widgets'
 import { gyro } from '../sensors'
 import KeepAwake from 'react-native-keep-awake'
 
@@ -32,20 +32,11 @@ export default class Main extends Component {
         this.setState({ flashlightOn })
     }
 
-    Content = () => {
-        if(this.state.flashlightOn){
-            return <Flashlight />
-        }
-
-        return <View style={styles.container}>
-            <Compass />
-        </View>
-    }
-
     render() {
+        let { flashlightOn } = this.state
         return <View style={styles.container}>
             <StatusBar hidden/>
-            <this.Content/>
+            {flashlightOn ? <Flashlight /> : <TabBar />}
         </View>
     }
 }
@@ -53,8 +44,6 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: 'black'
     }
 })
