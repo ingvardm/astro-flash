@@ -4,6 +4,8 @@ import { colors } from '../theme'
 import { heading } from '../sensors'
 import { CrossHair } from '../components'
 
+const headingUpdateThreshold = 50
+
 export default class Compass extends PureComponent {
     constructor(props) {
         super(props)
@@ -12,6 +14,7 @@ export default class Compass extends PureComponent {
             heading: new Animated.Value(0),
             value: 0
         }
+        this.lastHeadingUpdate = 0
     }
 
     componentDidMount() {
@@ -29,6 +32,9 @@ export default class Compass extends PureComponent {
     }
 
     handleHeadingUpdate = heading => {
+        let now = Date.now()
+        if(now < this.lastHeadingUpdate + headingUpdateThreshold) return
+        this.lastHeadingUpdate = now
         this.setState({value: heading})
         Animated.timing(
             this.state.heading,
