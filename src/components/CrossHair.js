@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Text, StyleSheet, View, Animated } from 'react-native'
 import { colors } from '../theme'
+import ImageBackground from './ImageBackground'
 
 const crossHairWidth = 2
 const crossHairLength = 20
@@ -16,15 +17,7 @@ export default class Compass extends PureComponent {
             <Animated.View style={[styles.crossHairWrapper, {
                 transform: [{ rotate: this.props.heading.interpolate(rotationInterpolation)}]
             }]}>
-                <View style={styles.crossHair}>
-                    <View style={[styles.crossHairLine, styles.crossHairLineVertical]}/>
-                    <Text style={styles.northMark}>N</Text>
-                    <View style={[styles.crossHair, styles.crossHairHorizontal]}>
-                        <View style={[styles.crossHairLine, styles.crossHairLineHorizontal]}/>
-                        <View style={[styles.crossHairLine, styles.crossHairLineHorizontal]}/>
-                    </View>
-                    <View style={[styles.crossHairLine, styles.crossHairLineVertical]}/>
-                </View>
+                <ImageBackground source={require('../assets/images/compass.png')}/>
             </Animated.View>
         )
     }
