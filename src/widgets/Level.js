@@ -7,7 +7,7 @@ import { gyro } from '../sensors'
 const containerSize = Dimensions.get('window').width * 0.8
 
 const bubbleInterpolation = {
-    inputRange:[-2,2],
+    inputRange:[-2.5,2.5],
     outputRange:[containerSize / 2, containerSize / -2],
     extrapolate: 'clamp'
 }
