@@ -3,7 +3,8 @@ import {
     StyleSheet,
     Animated,
     PanResponder,
-    Dimensions
+    Dimensions,
+    DeviceEventEmitter
 } from 'react-native'
 import SystemSetting from 'react-native-system-setting'
 import * as localStorage from '../storage'
@@ -22,62 +23,38 @@ export default class Flashlight extends PureComponent {
             brightness: new Animated.Value(0),
             ready: false
         }
-        this.lastVolumeValue = 0
-        this.initialVolumeValue =  0
-        this.volumeListener = null
-        this.volumeButtonsDisabled = false
-        this.volumeButtonsDisabledTimer = null
+        this.brightnessFloat = 0
     }
 
     componentWillMount() {
         this.getPersistentData()
-        this.getDeviceVolume()
         this.captureVolumeButtons()
-    }
-
-    async getDeviceVolume(){
-        let volume = await SystemSetting.getVolume('system')
-        this.initialVolumeValue = volume
     }
 
     async getPersistentData(){
         let persistentBrightness = parseFloat(await localStorage.load(PERSISTENT_BRIGHTNESS_NAME) || INITIAL_BRIGHTNESS)
-        this.lastVolumeValue = persistentBrightness
+        this.brightnessFloat = persistentBrightness
         this.state.brightness.setValue(persistentBrightness)
-        
     }
 
     async captureVolumeButtons() {
-        this.initialVolumeValue = await SystemSetting.getVolume('system')
-        this.volumeListener = SystemSetting.addVolumeListener(({system}) => {
-            // if(this.volumeButtonsDisabled) return
-            // this.volumeButtonsDisabled = true
-            let delta = system - this.initialVolumeValue
-            let value = this.lastVolumeValue
-
-            if(delta <= 0) value -= BRIGHTNESS_STEP
-            else value += BRIGHTNESS_STEP
-
-            if(value < MIN_BRIGHTNESS) value = MIN_BRIGHTNESS
-            else if(value > MAX_BRIGHTNESS) value = MAX_BRIGHTNESS
-
-            this.lastVolumeValue = value
-
-            SystemSetting.setVolume(this.initialVolumeValue, {
-                type: 'system',
-                playSound: false,
-                showUI: false
-            })
+        DeviceEventEmitter.addListener('keyVolumeUp', _=>{
+            let value = this.brightnessFloat + BRIGHTNESS_STEP
+            if(value > MAX_BRIGHTNESS) value = MAX_BRIGHTNESS
+            this.brightnessFloat = value
             this.state.brightness.setValue(value)
-            // setTimeout(() => {
-            //     this.volumeButtonsDisabled = false
-            // }, VOLUME_BUTTONS_INTERVAL)
+        })
+        DeviceEventEmitter.addListener('keyVolumeDown', _=>{
+            let value = this.brightnessFloat - BRIGHTNESS_STEP
+            if(value < MIN_BRIGHTNESS) value = MIN_BRIGHTNESS
+            this.brightnessFloat = value
+            this.state.brightness.setValue(value)
         })
     }
 
     componentWillUnmount (){
         SystemSetting.removeVolumeListener(this.volumeListener)
-        localStorage.save(PERSISTENT_BRIGHTNESS_NAME, this.lastVolumeValue)
+        localStorage.save(PERSISTENT_BRIGHTNESS_NAME, this.brightnessFloat)
     }
 
     render = () => {
