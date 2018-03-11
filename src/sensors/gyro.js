@@ -9,7 +9,7 @@ function runCallbacks(data){
 }
 
 export async function init(){
-    if(!G) G = await new Accelerometer({ updateInterval: 100 })
+    if(!G) G = await new Accelerometer({ updateInterval: 10 })
         .catch(e => console.log('Gyroscope not evailable', e))
     return !!G
 }
