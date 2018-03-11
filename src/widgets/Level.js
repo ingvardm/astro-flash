@@ -15,10 +15,11 @@ const bubbleInterpolation = {
 export default class Level extends PureComponent {
     constructor(props){
         super(props)
-        this.state ={
+        this.state = {
             x: new Animated.Value(0),
             y: new Animated.Value(0)
         }
+        this.animating = false
     }
 
     componentDidMount(){
@@ -30,9 +31,21 @@ export default class Level extends PureComponent {
         if(gyroAvailable) gyro.subscribe(this.handleGyroUpdate)
     }
 
-    handleGyroUpdate = ({x,y}) => {
-        this.state.x.setValue(-x)
-        this.state.y.setValue(y)
+    handleGyroUpdate = ({ x, y }) => {
+        if(this.animating) return
+        this.animating = true
+        Animated.parallel([
+            Animated.timing(this.state.x, {
+                toValue: -x,
+                duration: 50,
+                useNativeDriver: true
+            }),
+            Animated.timing(this.state.y, {
+                toValue: y,
+                duration: 50,
+                useNativeDriver: true
+            }),
+        ]).start(_=> this.animating = false)
     }
 
     render(){
@@ -41,13 +54,13 @@ export default class Level extends PureComponent {
                 <ImageBackground source={require('../assets/images/level.png')}/>
             </View>
 
-            <Animated.View style={[styles.dot, { transform: [{ 
-                translateX: this.state.x.interpolate(bubbleInterpolation)
-            }]}]}/>
+            <Animated.View style={[styles.dot, { transform: [{
+                    translateX: this.state.x.interpolate(bubbleInterpolation)
+                }]}]}/>
 
-            <Animated.View style={[styles.dot, { transform: [{ 
-                translateY: this.state.y.interpolate(bubbleInterpolation)
-            }]}]}/>
+            <Animated.View style={[styles.dot, { transform: [{
+                    translateY: this.state.y.interpolate(bubbleInterpolation)
+                }]}]}/>
         </Wrapper>
     }
 }
