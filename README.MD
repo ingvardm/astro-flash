@@ -38,5 +38,11 @@ TODO v1.0
 ===
 [See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
 
+Contributions
+===
+Yes, please!
 
-made with ❤️ by [Igor Poughatch](https://github.com/ingvardm)
+---
+
+
+made with `❤️` by [Igor Poughatch](https://github.com/ingvardm)
