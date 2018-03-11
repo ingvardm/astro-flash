@@ -1,4 +1,4 @@
-![AstroFlash](./icon.png "AstroFlash")
+![AstroFlash](./icon_rm.png "AstroFlash")
 
 Description
 ===
