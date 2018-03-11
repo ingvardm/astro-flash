@@ -19,3 +19,4 @@ design.svg
 android/local.properties
 android/app/keystore
 *.ttf
+store-assets
