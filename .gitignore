@@ -16,3 +16,4 @@ yarn-error.log*
 design.svg
 .idea
 *.iml
+android/local.properties
