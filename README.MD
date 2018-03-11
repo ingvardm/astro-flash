@@ -10,6 +10,10 @@ Features
 * Compass
 * Level
 
+Downloadable APK
+===
+Get the latest Android build [here](https://drive.google.com/file/d/1uwMRRr0io2LEbhcbNYMsOGfX-559xiiK/view?usp=sharing)
+
 Install
 ===
 First follow these [instructions](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies) to install [react-native-cli](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
