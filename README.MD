@@ -39,4 +39,4 @@ TODO v1.0
 [See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
 
 
-made with ❤️ by [Igor Poughatch](mailto://ingvardm@gmail.com)
+made with ❤️ by [Igor Poughatch](https://github.com/ingvardm)
