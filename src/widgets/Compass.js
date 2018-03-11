@@ -12,11 +12,16 @@ export default class Compass extends PureComponent {
             value: 0
         }
         this.animating = false
-        props.navigation.addListener('didFocus',  this.initializeSensors)
-        props.navigation.addListener('didBlur', heading.stop)
+    }
+
+    componentWillMount(){
+        this.onFocusListener = this.props.navigation.addListener('didFocus',  this.initializeSensors)
+        this.onBlureListener = this.props.navigation.addListener('didBlur', heading.stop)
     }
 
     componentWillUnmount(){
+        this.onFocusListener.remove()
+        this.onBlureListener.remove()
         heading.stop()
     }
 
