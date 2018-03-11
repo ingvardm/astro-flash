@@ -17,3 +17,4 @@ design.svg
 .idea
 *.iml
 android/local.properties
+android/app/keystore
