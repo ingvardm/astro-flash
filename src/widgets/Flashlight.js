@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import SystemSetting from 'react-native-system-setting'
 import * as localStorage from '../storage'
+import { colors } from '../theme'
 
 const MIN_BRIGHTNESS = 0.2
 const MAX_BRIGHTNESS = 1
@@ -59,7 +60,6 @@ export default class Flashlight extends PureComponent {
 
     render = () => {
         return <Animated.View
-            // {...this._panResponder.panHandlers}
             style={[
                 styles.flashlight,
                 { opacity: this.state.brightness }
@@ -71,6 +71,6 @@ export default class Flashlight extends PureComponent {
 const styles = StyleSheet.create({
     flashlight: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: '#ff0000'
+        backgroundColor: colors.red
     }
 })

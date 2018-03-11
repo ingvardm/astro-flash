@@ -8,8 +8,8 @@ export async function init(){
 
 export function subscribe(callback) {
     DeviceEventEmitter.addListener('headingUpdated', callback)
-
 }
+
 export function stop() {
     ReactNativeHeading.stop();
     DeviceEventEmitter.removeAllListeners('headingUpdated')

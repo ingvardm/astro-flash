@@ -3,6 +3,7 @@ import { StyleSheet, View, StatusBar, Animated } from 'react-native'
 import { Flashlight, TabBar } from '../widgets'
 import { gyro } from '../sensors'
 import KeepAwake from 'react-native-keep-awake'
+import { colors } from '../theme'
 
 export default class Main extends Component {
     constructor(props) {
@@ -44,6 +45,6 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black'
+        backgroundColor: colors.black
     }
 })
