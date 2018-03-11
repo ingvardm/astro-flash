@@ -12,19 +12,26 @@ Features
 
 Install
 ===
-```bash
-    # with yarn
-    yarn
+First follow these [instructions](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies) to install [react-native-cli](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
-    # with npm
-    npm i
+Install AstroFlash:
+```bash
+git clone git@github.com:ingvardm/astro-flash.git
+
+cd astroflash
+
+# with yarn
+yarn
+
+# or with npm
+npm i
 ```
 
 Run
 ===
 ```bash
-    # android
-    react-native run-android
+# android
+react-native run-android
 ```
 
 TODO v1.0
