@@ -45,4 +45,4 @@ Yes, please!
 ---
 
 
-made with `❤️` by [Igor Poughatch](https://github.com/ingvardm)
+made with ❤️ by [Igor Poughatch](https://github.com/ingvardm)
