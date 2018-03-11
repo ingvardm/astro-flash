@@ -8,33 +8,21 @@ export default class Compass extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            compasAvailable: false,
             heading: new Animated.Value(0),
             value: 0
         }
         this.animating = false
-    }
-
-    componentDidMount() {
-        this.initializeSensors()
-    }
-
-    componentDidUpdate(){
-        if(this.props.navigation.state.routeName === 'Compass'){
-
-        } else {
-            heading.stop()
-        }
+        props.navigation.addListener('didFocus',  this.initializeSensors)
+        props.navigation.addListener('didBlur', heading.stop)
     }
 
     componentWillUnmount(){
         heading.stop()
     }
 
-    async initializeSensors(){
+    initializeSensors = async _=> {
         let compasAvailable = await heading.init()
         if(compasAvailable) heading.subscribe(this.handleHeadingUpdate)
-        this.setState({compasAvailable})
     }
 
     handleHeadingUpdate = heading => {
