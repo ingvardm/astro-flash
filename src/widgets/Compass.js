@@ -4,8 +4,6 @@ import { colors } from '../theme'
 import { heading } from '../sensors'
 import { CrossHair, Wrapper } from '../components'
 
-const headingUpdateThreshold = 50
-
 export default class Compass extends PureComponent {
     constructor(props) {
         super(props)
@@ -14,11 +12,19 @@ export default class Compass extends PureComponent {
             heading: new Animated.Value(0),
             value: 0
         }
-        this.lastHeadingUpdate = 0
+        this.animating = false
     }
 
     componentDidMount() {
         this.initializeSensors()
+    }
+
+    componentDidUpdate(){
+        if(this.props.navigation.state.routeName === 'Compass'){
+
+        } else {
+            heading.stop()
+        }
     }
 
     componentWillUnmount(){
@@ -32,18 +38,17 @@ export default class Compass extends PureComponent {
     }
 
     handleHeadingUpdate = heading => {
-        let now = Date.now()
-        if(now < this.lastHeadingUpdate + headingUpdateThreshold) return
-        this.lastHeadingUpdate = now
-        this.setState({value: 360 - heading})
+        if(this.animating) return
+        this.animating = true
+        this.setState({value: heading})
         Animated.timing(
             this.state.heading,
             {
                 toValue: heading,
-                duration: 1,
+                duration: 50,
                 useNativeDriver: true
             }
-        ).start()
+        ).start(_=> this.animating = false)
     }
 
     render(){
