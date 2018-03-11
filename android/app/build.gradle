@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile project(':react-native-system-setting')
     compile project(':react-native-heading')
     compile project(':react-native-sensors')
@@ -163,3 +164,9 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+project.ext.vectoricons = [
+    iconFontNames: [ 'Feather.ttf' ]
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

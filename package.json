@@ -11,7 +11,8 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "jest": {
     "preset": "react-native"
@@ -23,6 +24,7 @@
     "react-native-keep-awake": "^3.0.1",
     "react-native-sensors": "^2.4.2",
     "react-native-system-setting": "^1.2.3",
+    "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.5.1"
   }
 }

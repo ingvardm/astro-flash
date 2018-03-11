@@ -18,3 +18,4 @@ design.svg
 *.iml
 android/local.properties
 android/app/keystore
+*.ttf
