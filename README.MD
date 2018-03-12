@@ -17,31 +17,26 @@ Download
 
 Get the latest Android build [here](https://drive.google.com/file/d/1uwMRRr0io2LEbhcbNYMsOGfX-559xiiK/view?usp=sharing)
 
-Install
+Develop
 ===
 First follow these [instructions](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies) to install [react-native-cli](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
-Install AstroFlash:
 ```bash
-git clone git@github.com:ingvardm/astro-flash.git
+#clone
+git clone git@github.com:ingvardm/astro-flash.git && cd astroflash
 
-cd astroflash
-
-# with yarn
-yarn
-
-# or with npm
+# install required packages
 npm i
-```
 
-Run
-===
-```bash
-# android
+#run in debug mode
 react-native run-android
 ```
 
-TODO v1.0
+Build signed APK
+===
+Follow [these guidelines](https://facebook.github.io/react-native/docs/signed-apk-android.html) to build a signed APK
+
+TODO v2.0
 ===
 [See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
 
