@@ -43,6 +43,7 @@ Visit [Github project](https://github.com/ingvardm/astro-flash/projects/1)
 Contributions
 ===
 Yes, please!
+To contribute to this project follow [these guidelines](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
 
 ---
 
