@@ -36,9 +36,9 @@ Build signed APK
 ===
 Follow [these guidelines](https://facebook.github.io/react-native/docs/signed-apk-android.html) to build a signed APK
 
-TODO v2.0
+Task Board
 ===
-[See Trello board](https://trello.com/b/tnCgIkXb/astroflash)
+Visit [Github project](https://github.com/ingvardm/astro-flash/projects/1)
 
 Contributions
 ===
