@@ -15,7 +15,7 @@ Download
 
 [Google Play](https://play.google.com/store/apps/details?id=com.astroflash)
 
-Get the latest Android build [here](https://drive.google.com/file/d/1uwMRRr0io2LEbhcbNYMsOGfX-559xiiK/view?usp=sharing)
+Get the latest Android build [here](https://drive.google.com/open?id=1Pn3Ood_4879TTl7ROG3bHld9yoSP-Xxh)
 
 Develop
 ===
