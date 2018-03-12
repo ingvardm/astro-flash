@@ -10,8 +10,11 @@ Features
 * Compass
 * Level
 
-Downloadable APK
+Download
 ===
+
+[Google Play](https://play.google.com/store/apps/details?id=com.astroflash)
+
 Get the latest Android build [here](https://drive.google.com/file/d/1uwMRRr0io2LEbhcbNYMsOGfX-559xiiK/view?usp=sharing)
 
 Install
