@@ -19,12 +19,12 @@
   },
   "dependencies": {
     "react": "16.2.0",
-    "react-native": "0.52.0",
+    "react-native": "0.60.0",
     "react-native-heading": "^1.1.1",
     "react-native-keep-awake": "^3.0.1",
     "react-native-sensors": "^2.4.2",
     "react-native-system-setting": "^1.2.3",
-    "react-native-vector-icons": "^4.5.0",
+    "react-native-vector-icons": "^6.4.1",
     "react-navigation": "^1.5.1"
   }
 }
